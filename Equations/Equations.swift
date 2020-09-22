@@ -43,6 +43,35 @@ public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<
     return constraint
 }
 
+@discardableResult
+public func <=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs, constant: 0)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func <=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.constant)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func >=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs, constant: 0)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func >=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, constant: rhs.constant)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+
 // MARK:- Special Dimension API
 
 public func *<A: LayoutDimension>(_ lhs: CGFloat, rhs: A) -> LayoutConfiguration<A> {
@@ -67,6 +96,42 @@ public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLay
 @discardableResult
 public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
     let constraint = lhs.anchor.constraint(equalTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func <=<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(lessThanOrEqualToConstant: rhs)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func <=<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(
+        lessThanOrEqualTo: rhs.anchor,
+        multiplier: rhs.multiplier,
+        constant: rhs.constant
+    )
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func >=<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(greaterThanOrEqualToConstant: rhs)
+    constraint.isActive = lhs.isActive
+    return constraint
+}
+
+@discardableResult
+public func >=<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(
+        greaterThanOrEqualTo: rhs.anchor,
+        multiplier: rhs.multiplier,
+        constant: rhs.constant
+    )
     constraint.isActive = lhs.isActive
     return constraint
 }
