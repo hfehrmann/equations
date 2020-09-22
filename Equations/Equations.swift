@@ -17,11 +17,17 @@ public func -(_ lhs: NSLayoutYAxisAnchor, rhs: CGFloat) -> (NSLayoutYAxisAnchor,
     return (lhs, -rhs)
 }
 
-public func ==(_ lhs: LayoutProxy, rhs: NSLayoutYAxisAnchor) {
-    
+@discardableResult
+public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(equalTo: rhs, constant: 0)
+    constraint.isActive = true
+    return constraint
 }
 
-public func ==(_ lhs: LayoutProxy, rhs: (NSLayoutYAxisAnchor, CGFloat)) {
-
+@discardableResult
+public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: (A, CGFloat)) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(equalTo: rhs.0, constant: rhs.1)
+    constraint.isActive = true
+    return constraint
 }
 

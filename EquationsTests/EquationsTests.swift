@@ -29,11 +29,11 @@ class EquationsTests: XCTestCase {
         }
 
         if let constraint = parent.constraints.first {
-            XCTAssertTrue(constraint.firstItem === self.parent)
-            XCTAssertTrue(constraint.secondItem === self.view)
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.parent.topAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.view.topAnchor)
+            XCTAssertEqual(constraint.firstAnchor, self.view.topAnchor)
+            XCTAssertEqual(constraint.secondAnchor, self.parent.topAnchor)
 
             XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
             XCTAssertEqual(constraint.constant, 0)
@@ -48,11 +48,11 @@ class EquationsTests: XCTestCase {
         }
 
         if let constraint = parent.constraints.first {
-            XCTAssertTrue(constraint.firstItem === self.parent)
-            XCTAssertTrue(constraint.secondItem === self.view)
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.parent.topAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.view.topAnchor)
+            XCTAssertEqual(constraint.firstAnchor, self.view.topAnchor)
+            XCTAssertEqual(constraint.secondAnchor, self.parent.topAnchor)
 
             XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
             XCTAssertEqual(constraint.constant, 3)
@@ -67,11 +67,11 @@ class EquationsTests: XCTestCase {
         }
 
         if let constraint = parent.constraints.first {
-            XCTAssertTrue(constraint.firstItem === self.parent)
-            XCTAssertTrue(constraint.secondItem === self.view)
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.parent.topAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.view.topAnchor)
+            XCTAssertEqual(constraint.firstAnchor, self.view.topAnchor)
+            XCTAssertEqual(constraint.secondAnchor, self.parent.topAnchor)
 
             XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
             XCTAssertEqual(constraint.constant, -3)
@@ -79,5 +79,4 @@ class EquationsTests: XCTestCase {
             XCTFail("No constraint was generated")
         }
     }
-
 }

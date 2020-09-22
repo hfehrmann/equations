@@ -9,9 +9,13 @@
 import Foundation
 import AppKit
 
-public struct ViewProxy {
+public class ViewProxy {
 
-    public let top: LayoutProxy! = LayoutProxy()
+    private let view: NSView
 
-    init() {}
+    public lazy var top: LayoutProxy! = LayoutProxy(anchor: self.view.topAnchor)
+
+    init(view: NSView) {
+        self.view = view
+    }
 }

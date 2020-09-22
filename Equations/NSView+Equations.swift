@@ -12,6 +12,6 @@ import AppKit
 public extension NSView {
 
     func equations(_ equationsGeneration: (ViewProxy) -> Void) {
-        
+        equationsGeneration(ViewProxy(view: self))
     }
 }
