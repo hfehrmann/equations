@@ -15,4 +15,5 @@ public protocol LayoutAnchor {
 
 public protocol LayoutDimension: LayoutAnchor {
     func constraint(equalToConstant: CGFloat) -> NSLayoutConstraint
+    func constraint(equalTo anchor: Self, multiplier m: CGFloat, constant: CGFloat) -> NSLayoutConstraint
 }

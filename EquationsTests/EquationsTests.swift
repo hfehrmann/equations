@@ -37,6 +37,10 @@ class EquationsTests: XCTestCase {
 
             XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
             XCTAssertEqual(constraint.constant, 0)
+
+            XCTAssertTrue(constraint.isActive)
+            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.multiplier, 1)
         } else {
             XCTFail("No constraint was generated")
         }
@@ -56,6 +60,10 @@ class EquationsTests: XCTestCase {
 
             XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
             XCTAssertEqual(constraint.constant, 3)
+
+            XCTAssertTrue(constraint.isActive)
+            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.multiplier, 1)
         } else {
             XCTFail("No constraint was generated")
         }
@@ -75,6 +83,79 @@ class EquationsTests: XCTestCase {
 
             XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
             XCTAssertEqual(constraint.constant, -3)
+
+            XCTAssertTrue(constraint.isActive)
+            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.multiplier, 1)
+        } else {
+            XCTFail("No constraint was generated")
+        }
+    }
+
+    func testDimensionWithMultiplier() {
+        self.view.equations { proxy in
+            proxy.width == 2 * self.parent.widthAnchor
+        }
+
+        if let constraint = self.parent.constraints.first {
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.parent)
+
+            XCTAssertEqual(constraint.firstAnchor, self.view.widthAnchor)
+            XCTAssertEqual(constraint.secondAnchor, self.parent.widthAnchor)
+
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
+            XCTAssertEqual(constraint.constant, 0)
+
+            XCTAssertTrue(constraint.isActive)
+            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.multiplier, 2)
+        } else {
+            XCTFail("No constraint was generated")
+        }
+    }
+
+    func testDimensionWithMultiplierAndPositiveConstant() {
+        self.view.equations { proxy in
+            proxy.width == 2 * self.parent.widthAnchor + 3
+        }
+
+        if let constraint = self.parent.constraints.first {
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.parent)
+
+            XCTAssertEqual(constraint.firstAnchor, self.view.widthAnchor)
+            XCTAssertEqual(constraint.secondAnchor, self.parent.widthAnchor)
+
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
+            XCTAssertEqual(constraint.constant, 3)
+
+            XCTAssertTrue(constraint.isActive)
+            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.multiplier, 2)
+        } else {
+            XCTFail("No constraint was generated")
+        }
+    }
+
+    func testDimensionWithMultiplierAndNegativeConstant() {
+        self.view.equations { proxy in
+            proxy.width == 2 * self.parent.widthAnchor - 3
+        }
+
+        if let constraint = self.parent.constraints.first {
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.parent)
+
+            XCTAssertEqual(constraint.firstAnchor, self.view.widthAnchor)
+            XCTAssertEqual(constraint.secondAnchor, self.parent.widthAnchor)
+
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.equal)
+            XCTAssertEqual(constraint.constant, -3)
+
+            XCTAssertTrue(constraint.isActive)
+            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.multiplier, 2)
         } else {
             XCTFail("No constraint was generated")
         }
