@@ -11,30 +11,24 @@ import AppKit
 
 @discardableResult
 public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
-    let constraint = lhs.anchor.constraint(equalTo: rhs, constant: 0)
-    constraint.isActive = lhs.isActive
-    return constraint
+    return lhs.createConstraint { $0.constraint(equalTo: rhs, constant: 0) }
 }
 
 @discardableResult
 public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
-    let constraint = lhs.anchor.constraint(equalTo: rhs.anchor, constant: rhs.constant)
-    constraint.isActive = lhs.isActive
-    return constraint
+    return lhs.createConstraint { $0.constraint(equalTo: rhs.anchor, constant: rhs.constant) }
 }
 
 // MARK:- Dimension API
 
 @discardableResult
 public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
-    let constraint = lhs.anchor.constraint(equalToConstant: rhs)
-    constraint.isActive = lhs.isActive
-    return constraint
+    return lhs.createConstraint  { $0.constraint(equalToConstant: rhs) }
 }
 
 @discardableResult
 public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
-    let constraint = lhs.anchor.constraint(equalTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant)
-    constraint.isActive = lhs.isActive
-    return constraint
+    return lhs.createConstraint {
+        $0.constraint(equalTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant)
+    }
 }

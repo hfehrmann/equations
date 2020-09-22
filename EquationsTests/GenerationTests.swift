@@ -30,7 +30,7 @@ class GenerationTests: XCTestCase {
     }
 
     func testConstraintGenerationWithPriority() {
-        let constraint = self.view.equateConstraint(withPriority: 600) { $0.top == self.parent.topAnchor }
+        let constraint = self.view.equateConstraint { $0.top.with(priority: 600) == self.parent.topAnchor }
 
         XCTAssertFalse(constraint.isActive)
         XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority(600))

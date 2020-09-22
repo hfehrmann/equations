@@ -18,13 +18,4 @@ public extension NSView {
     func equateConstraint(_ equationsGeneration: (ViewProxy) -> NSLayoutConstraint) -> NSLayoutConstraint {
         return equationsGeneration(ViewProxy(view: self, isActive: false))
     }
-
-    func equateConstraint(
-        withPriority: Float,
-        _ equationsGeneration: (ViewProxy) -> NSLayoutConstraint
-    ) -> NSLayoutConstraint {
-        let constraint = equationsGeneration(ViewProxy(view: self, isActive: false))
-        constraint.priority = NSLayoutConstraint.Priority(withPriority)
-        return constraint
-    }
 }
