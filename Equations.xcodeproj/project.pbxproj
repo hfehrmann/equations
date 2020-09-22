@@ -13,13 +13,17 @@
 		10635E802513E912004301C0 /* NSView+Equations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E7F2513E912004301C0 /* NSView+Equations.swift */; };
 		10635E822513E96F004301C0 /* ViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E812513E96F004301C0 /* ViewProxy.swift */; };
 		10635E842513E9C7004301C0 /* LayoutProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E832513E9C7004301C0 /* LayoutProxy.swift */; };
-		10635E862513EA10004301C0 /* Equations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E852513EA10004301C0 /* Equations.swift */; };
 		10635E8A25164184004301C0 /* AnchorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8925164184004301C0 /* AnchorTests.swift */; };
 		10635E8C2519084D004301C0 /* LayoutWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8B2519084D004301C0 /* LayoutWrappers.swift */; };
 		10635E8E25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */; };
 		10635E9325191773004301C0 /* GenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E9225191773004301C0 /* GenerationTests.swift */; };
 		10635E95251942F6004301C0 /* RelationGreaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E94251942F6004301C0 /* RelationGreaterTests.swift */; };
 		10635E9725194345004301C0 /* RelationLesserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E9625194345004301C0 /* RelationLesserTests.swift */; };
+		10DDBB8B25196E2A0007A333 /* Equations+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDBB8A25196E2A0007A333 /* Equations+Operation.swift */; };
+		10DDBB8D25196E480007A333 /* LayoutConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDBB8C25196E480007A333 /* LayoutConfiguration.swift */; };
+		10DDBB8F25196ECD0007A333 /* Equations+Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDBB8E25196ECD0007A333 /* Equations+Equal.swift */; };
+		10DDBB9125196EF30007A333 /* Equations+Greater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDBB9025196EF30007A333 /* Equations+Greater.swift */; };
+		10DDBB9325196F0E0007A333 /* Equations+Lesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDBB9225196F0E0007A333 /* Equations+Lesser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +46,17 @@
 		10635E7F2513E912004301C0 /* NSView+Equations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Equations.swift"; sourceTree = "<group>"; };
 		10635E812513E96F004301C0 /* ViewProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProxy.swift; sourceTree = "<group>"; };
 		10635E832513E9C7004301C0 /* LayoutProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProxy.swift; sourceTree = "<group>"; };
-		10635E852513EA10004301C0 /* Equations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equations.swift; sourceTree = "<group>"; };
 		10635E8925164184004301C0 /* AnchorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorTests.swift; sourceTree = "<group>"; };
 		10635E8B2519084D004301C0 /* LayoutWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutWrappers.swift; sourceTree = "<group>"; };
 		10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSConstraintLayout+LayoutWrappers.swift"; sourceTree = "<group>"; };
 		10635E9225191773004301C0 /* GenerationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationTests.swift; sourceTree = "<group>"; };
 		10635E94251942F6004301C0 /* RelationGreaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationGreaterTests.swift; sourceTree = "<group>"; };
 		10635E9625194345004301C0 /* RelationLesserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationLesserTests.swift; sourceTree = "<group>"; };
+		10DDBB8A25196E2A0007A333 /* Equations+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equations+Operation.swift"; sourceTree = "<group>"; };
+		10DDBB8C25196E480007A333 /* LayoutConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConfiguration.swift; sourceTree = "<group>"; };
+		10DDBB8E25196ECD0007A333 /* Equations+Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equations+Equal.swift"; sourceTree = "<group>"; };
+		10DDBB9025196EF30007A333 /* Equations+Greater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equations+Greater.swift"; sourceTree = "<group>"; };
+		10DDBB9225196F0E0007A333 /* Equations+Lesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equations+Lesser.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +101,10 @@
 			children = (
 				10635E682513E413004301C0 /* Equations.h */,
 				10635E8F251908A5004301C0 /* Extensions */,
+				10DDBB8925196DFD0007A333 /* API */,
 				10635E812513E96F004301C0 /* ViewProxy.swift */,
 				10635E832513E9C7004301C0 /* LayoutProxy.swift */,
 				10635E8B2519084D004301C0 /* LayoutWrappers.swift */,
-				10635E852513EA10004301C0 /* Equations.swift */,
 				10635E692513E413004301C0 /* Info.plist */,
 			);
 			path = Equations;
@@ -122,6 +130,18 @@
 				10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		10DDBB8925196DFD0007A333 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				10DDBB8C25196E480007A333 /* LayoutConfiguration.swift */,
+				10DDBB8A25196E2A0007A333 /* Equations+Operation.swift */,
+				10DDBB8E25196ECD0007A333 /* Equations+Equal.swift */,
+				10DDBB9025196EF30007A333 /* Equations+Greater.swift */,
+				10DDBB9225196F0E0007A333 /* Equations+Lesser.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,11 +254,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10DDBB9125196EF30007A333 /* Equations+Greater.swift in Sources */,
 				10635E8C2519084D004301C0 /* LayoutWrappers.swift in Sources */,
 				10635E802513E912004301C0 /* NSView+Equations.swift in Sources */,
+				10DDBB8D25196E480007A333 /* LayoutConfiguration.swift in Sources */,
 				10635E822513E96F004301C0 /* ViewProxy.swift in Sources */,
+				10DDBB8F25196ECD0007A333 /* Equations+Equal.swift in Sources */,
 				10635E842513E9C7004301C0 /* LayoutProxy.swift in Sources */,
-				10635E862513EA10004301C0 /* Equations.swift in Sources */,
+				10DDBB8B25196E2A0007A333 /* Equations+Operation.swift in Sources */,
+				10DDBB9325196F0E0007A333 /* Equations+Lesser.swift in Sources */,
 				10635E8E25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
