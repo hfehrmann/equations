@@ -47,5 +47,61 @@ class AnchorTests: XCTestCase {
                 }
             }
         }
+
+        XCTAssertEqual(parent.constraints.count, 9)
+    }
+
+    func testHorizontalLeftRight() {
+        let anchors = [
+            self.parent.leftAnchor,
+            self.parent.rightAnchor,
+            self.parent.centerXAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutXAxisAnchor>] in
+            [
+                proxy.left,
+                proxy.right,
+                proxy.centerX,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 9)
+    }
+
+    func testHorizontalLeadingTrailing() {
+        let anchors = [
+            self.parent.leadingAnchor,
+            self.parent.trailingAnchor,
+            self.parent.centerXAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutXAxisAnchor>] in
+            [
+                proxy.leading,
+                proxy.trailing,
+                proxy.centerX,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 9)
     }
 }
