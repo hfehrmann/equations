@@ -52,7 +52,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 25)
+        XCTAssertEqual(self.parent.constraints.count, 25)
     }
 
     func testVerticalWithConstants() {
@@ -84,7 +84,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 50)
+        XCTAssertEqual(self.parent.constraints.count, 50)
     }
 
     func testHorizontalLeftRight() {
@@ -111,7 +111,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 9)
+        XCTAssertEqual(self.parent.constraints.count, 9)
     }
 
     func testHorizontalLeftRightWithConstants() {
@@ -139,7 +139,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 18)
+        XCTAssertEqual(self.parent.constraints.count, 18)
     }
 
     func testHorizontalLeadingTrailing() {
@@ -166,7 +166,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 9)
+        XCTAssertEqual(self.parent.constraints.count, 9)
     }
 
     func testHorizontalLeadingTrailingWithConstants() {
@@ -194,7 +194,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 18)
+        XCTAssertEqual(self.parent.constraints.count, 18)
     }
 
     func testDimensions() {
@@ -219,7 +219,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 4)
+        XCTAssertEqual(self.parent.constraints.count, 4)
     }
 
     func testDimensionsWithConstants() {
@@ -245,7 +245,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 8)
+        XCTAssertEqual(self.parent.constraints.count, 8)
     }
 
     func testDimensionsToConstant() {
@@ -254,6 +254,20 @@ class AnchorTests: XCTestCase {
             $0.height == 1
         }
 
-        XCTAssertEqual(parent.constraints.count, 2)
+        XCTAssertEqual(self.view.constraints.count, 2)
+    }
+
+    func testDimensionsRatio() {
+        view.equations {
+            $0.width == self.view.heightAnchor
+        }
+
+        XCTAssertEqual(self.view.constraints.count, 1)
+        if let constraint = self.view.constraints.first {
+            XCTAssertTrue(constraint.firstItem === self.view)
+            XCTAssertTrue(constraint.secondItem === self.view)
+        } else {
+            XCTFail("No constraint was generated")
+        }
     }
 }

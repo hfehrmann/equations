@@ -28,7 +28,7 @@ class EquationsTests: XCTestCase {
             proxy.top == self.parent.topAnchor
         }
 
-        if let constraint = parent.constraints.first {
+        if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
@@ -47,7 +47,7 @@ class EquationsTests: XCTestCase {
             proxy.top == self.parent.topAnchor + 3
         }
 
-        if let constraint = parent.constraints.first {
+        if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
@@ -66,7 +66,7 @@ class EquationsTests: XCTestCase {
             proxy.top == self.parent.topAnchor - 3
         }
 
-        if let constraint = parent.constraints.first {
+        if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
