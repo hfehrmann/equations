@@ -16,6 +16,8 @@ public class ViewProxy {
     public lazy var top = LayoutProxy(anchor: self.view.topAnchor)
     public lazy var bottom = LayoutProxy(anchor: self.view.bottomAnchor)
     public lazy var centerY = LayoutProxy(anchor: self.view.centerYAnchor)
+    public lazy var firstBaseline = LayoutProxy(anchor: self.view.firstBaselineAnchor)
+    public lazy var lastBaseline = LayoutProxy(anchor: self.view.lastBaselineAnchor)
 
     public lazy var leading = LayoutProxy(anchor: self.view.leadingAnchor)
     public lazy var trailing = LayoutProxy(anchor: self.view.trailingAnchor)

@@ -29,6 +29,8 @@ class AnchorTests: XCTestCase {
             self.parent.topAnchor,
             self.parent.bottomAnchor,
             self.parent.centerYAnchor,
+            self.parent.firstBaselineAnchor,
+            self.parent.lastBaselineAnchor,
         ]
 
         let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutYAxisAnchor>] in
@@ -36,6 +38,8 @@ class AnchorTests: XCTestCase {
                 proxy.top,
                 proxy.bottom,
                 proxy.centerY,
+                proxy.firstBaseline,
+                proxy.lastBaseline,
             ]
         }
 
@@ -48,7 +52,7 @@ class AnchorTests: XCTestCase {
             }
         }
 
-        XCTAssertEqual(parent.constraints.count, 9)
+        XCTAssertEqual(parent.constraints.count, 25)
     }
 
     func testHorizontalLeftRight() {
