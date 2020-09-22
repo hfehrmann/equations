@@ -9,11 +9,11 @@
 import Foundation
 import AppKit
 
-public func +(_ lhs: NSLayoutYAxisAnchor, rhs: CGFloat) -> (NSLayoutYAxisAnchor, CGFloat) {
+public func +<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> (A, CGFloat)  {
     return (lhs, rhs)
 }
 
-public func -(_ lhs: NSLayoutYAxisAnchor, rhs: CGFloat) -> (NSLayoutYAxisAnchor, CGFloat)  {
+public func -<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> (A, CGFloat)  {
     return (lhs, -rhs)
 }
 

@@ -55,6 +55,38 @@ class AnchorTests: XCTestCase {
         XCTAssertEqual(parent.constraints.count, 25)
     }
 
+    func testVerticalWithConstants() {
+        let anchors = [
+            self.parent.topAnchor,
+            self.parent.bottomAnchor,
+            self.parent.centerYAnchor,
+            self.parent.firstBaselineAnchor,
+            self.parent.lastBaselineAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutYAxisAnchor>] in
+            [
+                proxy.top,
+                proxy.bottom,
+                proxy.centerY,
+                proxy.firstBaseline,
+                proxy.lastBaseline,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor + 1
+                    proxyAnchor == anchor - 1
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 50)
+    }
+
     func testHorizontalLeftRight() {
         let anchors = [
             self.parent.leftAnchor,
@@ -80,6 +112,34 @@ class AnchorTests: XCTestCase {
         }
 
         XCTAssertEqual(parent.constraints.count, 9)
+    }
+
+    func testHorizontalLeftRightWithConstants() {
+        let anchors = [
+            self.parent.leftAnchor,
+            self.parent.rightAnchor,
+            self.parent.centerXAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutXAxisAnchor>] in
+            [
+                proxy.left,
+                proxy.right,
+                proxy.centerX,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor + 1
+                    proxyAnchor == anchor - 1
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 18)
     }
 
     func testHorizontalLeadingTrailing() {
@@ -109,6 +169,34 @@ class AnchorTests: XCTestCase {
         XCTAssertEqual(parent.constraints.count, 9)
     }
 
+    func testHorizontalLeadingTrailingWithConstants() {
+        let anchors = [
+            self.parent.leadingAnchor,
+            self.parent.trailingAnchor,
+            self.parent.centerXAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutXAxisAnchor>] in
+            [
+                proxy.leading,
+                proxy.trailing,
+                proxy.centerX,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor + 1
+                    proxyAnchor == anchor - 1
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 18)
+    }
+
     func testDimensions() {
         let anchors = [
             self.parent.widthAnchor,
@@ -132,5 +220,31 @@ class AnchorTests: XCTestCase {
         }
 
         XCTAssertEqual(parent.constraints.count, 4)
+    }
+
+    func testDimensionsWithConstants() {
+        let anchors = [
+            self.parent.widthAnchor,
+            self.parent.heightAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutDimension>] in
+            [
+                proxy.width,
+                proxy.height,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor + 1
+                    proxyAnchor == anchor - 1
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 8)
     }
 }
