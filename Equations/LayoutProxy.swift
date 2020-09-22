@@ -10,4 +10,5 @@ import Foundation
 
 public struct LayoutProxy<Anchor> {
     let anchor: Anchor
+    let isActive: Bool
 }

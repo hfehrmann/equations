@@ -20,20 +20,20 @@ public func -<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> (A, CGFloat)  {
 @discardableResult
 public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
     let constraint = lhs.anchor.constraint(equalTo: rhs, constant: 0)
-    constraint.isActive = true
+    constraint.isActive = lhs.isActive
     return constraint
 }
 
 @discardableResult
 public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: (A, CGFloat)) -> NSLayoutConstraint {
     let constraint = lhs.anchor.constraint(equalTo: rhs.0, constant: rhs.1)
-    constraint.isActive = true
+    constraint.isActive = lhs.isActive
     return constraint
 }
 
 @discardableResult
 public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
     let constraint = lhs.anchor.constraint(equalToConstant: rhs)
-    constraint.isActive = true
+    constraint.isActive = lhs.isActive
     return constraint
 }

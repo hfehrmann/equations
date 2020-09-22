@@ -17,6 +17,7 @@
 		10635E8A25164184004301C0 /* AnchorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8925164184004301C0 /* AnchorTests.swift */; };
 		10635E8C2519084D004301C0 /* LayoutWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8B2519084D004301C0 /* LayoutWrappers.swift */; };
 		10635E8E25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */; };
+		10635E9325191773004301C0 /* GenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E9225191773004301C0 /* GenerationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		10635E8925164184004301C0 /* AnchorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorTests.swift; sourceTree = "<group>"; };
 		10635E8B2519084D004301C0 /* LayoutWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutWrappers.swift; sourceTree = "<group>"; };
 		10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSConstraintLayout+LayoutWrappers.swift"; sourceTree = "<group>"; };
+		10635E9225191773004301C0 /* GenerationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				10635E732513E413004301C0 /* EquationsTests.swift */,
 				10635E8925164184004301C0 /* AnchorTests.swift */,
+				10635E9225191773004301C0 /* GenerationTests.swift */,
 				10635E752513E413004301C0 /* Info.plist */,
 			);
 			path = EquationsTests;
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10635E9325191773004301C0 /* GenerationTests.swift in Sources */,
 				10635E8A25164184004301C0 /* AnchorTests.swift in Sources */,
 				10635E742513E413004301C0 /* EquationsTests.swift in Sources */,
 			);
