@@ -23,6 +23,9 @@ public class ViewProxy {
     public lazy var right = LayoutProxy(anchor: self.view.rightAnchor)
     public lazy var centerX = LayoutProxy(anchor: self.view.centerXAnchor)
 
+    public lazy var width = LayoutProxy(anchor: self.view.widthAnchor)
+    public lazy var height = LayoutProxy(anchor: self.view.heightAnchor)
+
     init(view: NSView) {
         self.view = view
     }

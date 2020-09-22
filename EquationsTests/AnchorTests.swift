@@ -104,4 +104,29 @@ class AnchorTests: XCTestCase {
 
         XCTAssertEqual(parent.constraints.count, 9)
     }
+
+    func testDimensions() {
+        let anchors = [
+            self.parent.widthAnchor,
+            self.parent.heightAnchor,
+        ]
+
+        let proxyAnchorsBuilder = { (proxy: ViewProxy) -> [LayoutProxy<NSLayoutDimension>] in
+            [
+                proxy.width,
+                proxy.height,
+            ]
+        }
+
+        view.equations {
+            let proxyAnchors = proxyAnchorsBuilder($0)
+            for anchor in anchors {
+                for proxyAnchor in proxyAnchors {
+                    proxyAnchor == anchor
+                }
+            }
+        }
+
+        XCTAssertEqual(parent.constraints.count, 4)
+    }
 }
