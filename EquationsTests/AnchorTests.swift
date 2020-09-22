@@ -247,4 +247,13 @@ class AnchorTests: XCTestCase {
 
         XCTAssertEqual(parent.constraints.count, 8)
     }
+
+    func testDimensionsToConstant() {
+        view.equations {
+            $0.width == 1
+            $0.height == 1
+        }
+
+        XCTAssertEqual(parent.constraints.count, 2)
+    }
 }

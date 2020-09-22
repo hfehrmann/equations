@@ -31,3 +31,9 @@ public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: (A, CGFloat)) -> NSL
     return constraint
 }
 
+@discardableResult
+public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
+    let constraint = lhs.anchor.constraint(equalToConstant: rhs)
+    constraint.isActive = true
+    return constraint
+}

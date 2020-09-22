@@ -15,6 +15,8 @@
 		10635E842513E9C7004301C0 /* LayoutProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E832513E9C7004301C0 /* LayoutProxy.swift */; };
 		10635E862513EA10004301C0 /* Equations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E852513EA10004301C0 /* Equations.swift */; };
 		10635E8A25164184004301C0 /* AnchorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8925164184004301C0 /* AnchorTests.swift */; };
+		10635E8C2519084D004301C0 /* LayoutWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8B2519084D004301C0 /* LayoutWrappers.swift */; };
+		10635E8E25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		10635E832513E9C7004301C0 /* LayoutProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProxy.swift; sourceTree = "<group>"; };
 		10635E852513EA10004301C0 /* Equations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equations.swift; sourceTree = "<group>"; };
 		10635E8925164184004301C0 /* AnchorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorTests.swift; sourceTree = "<group>"; };
+		10635E8B2519084D004301C0 /* LayoutWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutWrappers.swift; sourceTree = "<group>"; };
+		10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSConstraintLayout+LayoutWrappers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				10635E682513E413004301C0 /* Equations.h */,
-				10635E7F2513E912004301C0 /* NSView+Equations.swift */,
+				10635E8F251908A5004301C0 /* Extensionss */,
 				10635E812513E96F004301C0 /* ViewProxy.swift */,
 				10635E832513E9C7004301C0 /* LayoutProxy.swift */,
+				10635E8B2519084D004301C0 /* LayoutWrappers.swift */,
 				10635E852513EA10004301C0 /* Equations.swift */,
 				10635E692513E413004301C0 /* Info.plist */,
 			);
@@ -99,6 +104,15 @@
 				10635E752513E413004301C0 /* Info.plist */,
 			);
 			path = EquationsTests;
+			sourceTree = "<group>";
+		};
+		10635E8F251908A5004301C0 /* Extensionss */ = {
+			isa = PBXGroup;
+			children = (
+				10635E7F2513E912004301C0 /* NSView+Equations.swift */,
+				10635E8D25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift */,
+			);
+			path = Extensionss;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,10 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10635E8C2519084D004301C0 /* LayoutWrappers.swift in Sources */,
 				10635E802513E912004301C0 /* NSView+Equations.swift in Sources */,
 				10635E822513E96F004301C0 /* ViewProxy.swift in Sources */,
 				10635E842513E9C7004301C0 /* LayoutProxy.swift in Sources */,
 				10635E862513EA10004301C0 /* Equations.swift in Sources */,
+				10635E8E25190880004301C0 /* NSConstraintLayout+LayoutWrappers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
