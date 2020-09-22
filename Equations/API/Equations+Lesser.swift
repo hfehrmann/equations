@@ -9,7 +9,6 @@
 import Foundation
 import AppKit
 
-
 @discardableResult
 public func <=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
     lhs.createConstraint { $0.constraint(lessThanOrEqualTo: rhs, constant: 0) }
@@ -20,7 +19,7 @@ public func <=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<
     lhs.createConstraint { $0.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.constant) }
 }
 
-// MARK:- Dimension API
+// MARK: - Dimension API
 
 @discardableResult
 public func <=<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {

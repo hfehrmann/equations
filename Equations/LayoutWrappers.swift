@@ -15,6 +15,7 @@ public protocol LayoutAnchor {
     func constraint(lessThanOrEqualTo anchor: Self, constant: CGFloat) -> NSLayoutConstraint
 }
 
+// swiftlint:disable identifier_name
 public protocol LayoutDimension: LayoutAnchor {
     func constraint(equalToConstant: CGFloat) -> NSLayoutConstraint
     func constraint(equalTo anchor: Self, multiplier m: CGFloat, constant: CGFloat) -> NSLayoutConstraint
@@ -25,3 +26,4 @@ public protocol LayoutDimension: LayoutAnchor {
     func constraint(lessThanOrEqualToConstant: CGFloat) -> NSLayoutConstraint
     func constraint(lessThanOrEqualTo anchor: Self, multiplier m: CGFloat, constant: CGFloat) -> NSLayoutConstraint
 }
+// swiftlint:enable identifier_name

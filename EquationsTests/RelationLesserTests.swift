@@ -7,8 +7,6 @@
 //
 
 import XCTest
-
-import XCTest
 import AppKit
 @testable import Equations
 
@@ -162,4 +160,4 @@ class RelationLesserTests: XCTestCase {
             XCTFail("No constraint was generated")
         }
     }
-}   
+}

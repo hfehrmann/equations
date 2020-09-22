@@ -19,11 +19,11 @@ public func ==<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<
     return lhs.createConstraint { $0.constraint(equalTo: rhs.anchor, constant: rhs.constant) }
 }
 
-// MARK:- Dimension API
+// MARK: - Dimension API
 
 @discardableResult
 public func ==<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
-    return lhs.createConstraint  { $0.constraint(equalToConstant: rhs) }
+    return lhs.createConstraint { $0.constraint(equalToConstant: rhs) }
 }
 
 @discardableResult

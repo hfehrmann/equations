@@ -23,7 +23,6 @@ class AnchorTests: XCTestCase {
         self.parent.addSubview(view)
     }
 
-
     func testVertical() {
         let anchors = [
             self.parent.topAnchor,

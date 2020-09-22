@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func +<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> LayoutConfiguration<A>  {
+public func +<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> LayoutConfiguration<A> {
     return LayoutConfiguration(anchor: lhs, constant: rhs)
 }
 
@@ -16,7 +16,7 @@ public func -<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> LayoutConfiguration<A>
     return LayoutConfiguration(anchor: lhs, constant: -rhs)
 }
 
-// MARK:- Dimension API
+// MARK: - Dimension API
 
 public func *<A: LayoutDimension>(_ lhs: CGFloat, rhs: A) -> LayoutConfiguration<A> {
     return LayoutConfiguration(anchor: rhs, multiplier: lhs)
