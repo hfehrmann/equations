@@ -1,5 +1,5 @@
 //
-//  RelationLesserTests.swift
+//  RelationTests.swift
 //  EquationsTests
 //
 //  Created by Hans Fehrmann on 21-09-20.
@@ -10,7 +10,7 @@ import XCTest
 import AppKit
 @testable import Equations
 
-class RelationLesserTests: XCTestCase {
+class RelationGreaterTests: XCTestCase {
 
     var parent: NSView!
     var view: NSView!
@@ -25,17 +25,17 @@ class RelationLesserTests: XCTestCase {
 
     func testTopGenerationWithoutConstant() {
         self.view.equations { proxy in
-            proxy.top <= self.parent.topAnchor
+            proxy.top >= self.parent.topAnchor
         }
 
         if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.view.topAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.parent.topAnchor)
+            XCTAssertEqual(constraint.firstAttribute, .top)
+            XCTAssertEqual(constraint.secondAttribute, .top)
 
-            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.lessThanOrEqual)
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.greaterThanOrEqual)
             XCTAssertEqual(constraint.constant, 0)
 
             XCTAssertTrue(constraint.isActive)
@@ -48,17 +48,17 @@ class RelationLesserTests: XCTestCase {
 
     func testTopGenerationWithPositiveConstant() {
         self.view.equations { proxy in
-            proxy.top <= self.parent.topAnchor + 3
+            proxy.top >= self.parent.topAnchor + 3
         }
 
         if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.view.topAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.parent.topAnchor)
+            XCTAssertEqual(constraint.firstAttribute, .top)
+            XCTAssertEqual(constraint.secondAttribute, .top)
 
-            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.lessThanOrEqual)
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.greaterThanOrEqual)
             XCTAssertEqual(constraint.constant, 3)
 
             XCTAssertTrue(constraint.isActive)
@@ -71,17 +71,17 @@ class RelationLesserTests: XCTestCase {
 
     func testTopGenerationWithNegativeConstant() {
         self.view.equations { proxy in
-            proxy.top <= self.parent.topAnchor - 3
+            proxy.top >= self.parent.topAnchor - 3
         }
 
         if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.view.topAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.parent.topAnchor)
+            XCTAssertEqual(constraint.firstAttribute, .top)
+            XCTAssertEqual(constraint.secondAttribute, .top)
 
-            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.lessThanOrEqual)
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.greaterThanOrEqual)
             XCTAssertEqual(constraint.constant, -3)
 
             XCTAssertTrue(constraint.isActive)
@@ -94,17 +94,17 @@ class RelationLesserTests: XCTestCase {
 
     func testDimensionWithMultiplier() {
         self.view.equations { proxy in
-            proxy.width <= 2 * self.parent.widthAnchor
+            proxy.width >= 2 * self.parent.widthAnchor
         }
 
         if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.view.widthAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.parent.widthAnchor)
+            XCTAssertEqual(constraint.firstAttribute, .width)
+            XCTAssertEqual(constraint.secondAttribute, .width)
 
-            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.lessThanOrEqual)
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.greaterThanOrEqual)
             XCTAssertEqual(constraint.constant, 0)
 
             XCTAssertTrue(constraint.isActive)
@@ -117,17 +117,17 @@ class RelationLesserTests: XCTestCase {
 
     func testDimensionWithMultiplierAndPositiveConstant() {
         self.view.equations { proxy in
-            proxy.width <= 2 * self.parent.widthAnchor + 3
+            proxy.width >= 2 * self.parent.widthAnchor + 3
         }
 
         if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.view.widthAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.parent.widthAnchor)
+            XCTAssertEqual(constraint.firstAttribute, .width)
+            XCTAssertEqual(constraint.secondAttribute, .width)
 
-            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.lessThanOrEqual)
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.greaterThanOrEqual)
             XCTAssertEqual(constraint.constant, 3)
 
             XCTAssertTrue(constraint.isActive)
@@ -140,17 +140,17 @@ class RelationLesserTests: XCTestCase {
 
     func testDimensionWithMultiplierAndNegativeConstant() {
         self.view.equations { proxy in
-            proxy.width <= 2 * self.parent.widthAnchor - 3
+            proxy.width >= 2 * self.parent.widthAnchor - 3
         }
 
         if let constraint = self.parent.constraints.first {
             XCTAssertTrue(constraint.firstItem === self.view)
             XCTAssertTrue(constraint.secondItem === self.parent)
 
-            XCTAssertEqual(constraint.firstAnchor, self.view.widthAnchor)
-            XCTAssertEqual(constraint.secondAnchor, self.parent.widthAnchor)
+            XCTAssertEqual(constraint.firstAttribute, .width)
+            XCTAssertEqual(constraint.secondAttribute, .width)
 
-            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.lessThanOrEqual)
+            XCTAssertEqual(constraint.relation, NSLayoutConstraint.Relation.greaterThanOrEqual)
             XCTAssertEqual(constraint.constant, -3)
 
             XCTAssertTrue(constraint.isActive)
