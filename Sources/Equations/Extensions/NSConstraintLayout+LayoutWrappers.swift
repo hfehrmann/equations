@@ -7,7 +7,14 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
 
 extension NSLayoutAnchor: LayoutAnchor { }
+extension NSLayoutAnchor: LayoutAnchorLanguageAware { }
+extension NSLayoutAnchor: LayoutAnchorRealAware { }
 extension NSLayoutDimension: LayoutDimension { }

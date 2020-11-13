@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Equations",
     platforms: [
-        .macOS(.v10_11),
+        .macOS(.v10_11), .iOS(.v9)
     ],
     products: [
         .library(name: "Equations", targets: ["Equations"]),

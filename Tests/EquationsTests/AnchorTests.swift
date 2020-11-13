@@ -7,17 +7,23 @@
 //
 
 import XCTest
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
+
 @testable import Equations
 
 class AnchorTests: XCTestCase {
 
-    var parent: NSView!
-    var view: NSView!
+    var parent: TestableEquationView!
+    var view: TestableEquationView!
 
     override func setUp() {
-        self.parent = NSView()
-        self.view = NSView()
+        self.parent = createView()
+        self.view = createView()
         self.view.translatesAutoresizingMaskIntoConstraints = false
 
         self.parent.addSubview(view)

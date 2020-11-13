@@ -7,9 +7,14 @@
 //
 
 import Foundation
-import AppKit
 
-public extension NSView {
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
+public extension EquationView {
 
     func equations(_ equationsGeneration: (ViewProxy) -> Void) {
         equationsGeneration(ViewProxy(view: self, isActive: true))

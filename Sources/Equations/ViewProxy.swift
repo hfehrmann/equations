@@ -7,11 +7,16 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
 
 public class ViewProxy {
 
-    private let view: NSView
+    private let view: EquationView
     private let isActive: Bool
 
     public lazy var top = LayoutProxy(anchor: self.view.topAnchor, isActive: self.isActive)
@@ -29,7 +34,7 @@ public class ViewProxy {
     public lazy var width = LayoutProxy(anchor: self.view.widthAnchor, isActive: self.isActive)
     public lazy var height = LayoutProxy(anchor: self.view.heightAnchor, isActive: self.isActive)
 
-    init(view: NSView, isActive: Bool) {
+    init(view: EquationView, isActive: Bool) {
         self.view = view
         self.isActive = isActive
     }

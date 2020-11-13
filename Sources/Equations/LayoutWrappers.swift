@@ -7,13 +7,21 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
 
 public protocol LayoutAnchor {
     func constraint(equalTo anchor: Self, constant: CGFloat) -> NSLayoutConstraint
     func constraint(greaterThanOrEqualTo anchor: Self, constant: CGFloat) -> NSLayoutConstraint
     func constraint(lessThanOrEqualTo anchor: Self, constant: CGFloat) -> NSLayoutConstraint
 }
+
+public protocol LayoutAnchorLanguageAware: LayoutAnchor {}
+public protocol LayoutAnchorRealAware: LayoutAnchor {}
 
 // swiftlint:disable identifier_name
 public protocol LayoutDimension: LayoutAnchor {

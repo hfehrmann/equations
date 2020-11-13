@@ -6,7 +6,7 @@
 //  Copyright © 2020 Fehrmann Inc. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 public struct LayoutConfiguration<A: LayoutAnchor> {
     let anchor: A

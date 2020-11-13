@@ -7,17 +7,23 @@
 //
 
 import XCTest
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
+
 @testable import Equations
 
 class RelationGreaterTests: XCTestCase {
 
-    var parent: NSView!
-    var view: NSView!
+    var parent: TestableEquationView!
+    var view: TestableEquationView!
 
     override func setUp() {
-        self.parent = NSView()
-        self.view = NSView()
+        self.parent = createView()
+        self.view = createView()
         self.view.translatesAutoresizingMaskIntoConstraints = false
 
         self.parent.addSubview(view)
@@ -39,7 +45,7 @@ class RelationGreaterTests: XCTestCase {
             XCTAssertEqual(constraint.constant, 0)
 
             XCTAssertTrue(constraint.isActive)
-            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.priority, createPriority(.required))
             XCTAssertEqual(constraint.multiplier, 1)
         } else {
             XCTFail("No constraint was generated")
@@ -62,7 +68,7 @@ class RelationGreaterTests: XCTestCase {
             XCTAssertEqual(constraint.constant, 3)
 
             XCTAssertTrue(constraint.isActive)
-            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.priority, createPriority(.required))
             XCTAssertEqual(constraint.multiplier, 1)
         } else {
             XCTFail("No constraint was generated")
@@ -85,7 +91,7 @@ class RelationGreaterTests: XCTestCase {
             XCTAssertEqual(constraint.constant, -3)
 
             XCTAssertTrue(constraint.isActive)
-            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.priority, createPriority(.required))
             XCTAssertEqual(constraint.multiplier, 1)
         } else {
             XCTFail("No constraint was generated")
@@ -108,7 +114,7 @@ class RelationGreaterTests: XCTestCase {
             XCTAssertEqual(constraint.constant, 0)
 
             XCTAssertTrue(constraint.isActive)
-            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.priority, createPriority(.required))
             XCTAssertEqual(constraint.multiplier, 2)
         } else {
             XCTFail("No constraint was generated")
@@ -131,7 +137,7 @@ class RelationGreaterTests: XCTestCase {
             XCTAssertEqual(constraint.constant, 3)
 
             XCTAssertTrue(constraint.isActive)
-            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.priority, createPriority(.required))
             XCTAssertEqual(constraint.multiplier, 2)
         } else {
             XCTFail("No constraint was generated")
@@ -154,7 +160,7 @@ class RelationGreaterTests: XCTestCase {
             XCTAssertEqual(constraint.constant, -3)
 
             XCTAssertTrue(constraint.isActive)
-            XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+            XCTAssertEqual(constraint.priority, createPriority(.required))
             XCTAssertEqual(constraint.multiplier, 2)
         } else {
             XCTFail("No constraint was generated")

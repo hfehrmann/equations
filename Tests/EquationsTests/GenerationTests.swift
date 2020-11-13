@@ -7,17 +7,23 @@
 //
 
 import XCTest
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
+
 @testable import Equations
 
 class GenerationTests: XCTestCase {
 
-    var parent: NSView!
-    var view: NSView!
+    var parent: TestableEquationView!
+    var view: TestableEquationView!
 
     override func setUp() {
-        self.parent = NSView()
-        self.view = NSView()
+        self.parent = createView()
+        self.view = createView()
         self.view.translatesAutoresizingMaskIntoConstraints = false
 
         self.parent.addSubview(view)
@@ -26,14 +32,14 @@ class GenerationTests: XCTestCase {
     func testConstraintGeneration() {
         let constraint = self.view.equateConstraint { $0.top == self.parent.topAnchor }
         XCTAssertFalse(constraint.isActive)
-        XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority.required)
+        XCTAssertEqual(constraint.priority, createPriority(.required))
     }
 
     func testConstraintGenerationWithPriority() {
         let constraint = self.view.equateConstraint { $0.top.with(priority: 600) == self.parent.topAnchor }
 
         XCTAssertFalse(constraint.isActive)
-        XCTAssertEqual(constraint.priority, NSLayoutConstraint.Priority(600))
+        XCTAssertEqual(constraint.priority, createPriority(600))
     }
 
 }

@@ -7,7 +7,12 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
 
 public struct LayoutProxy<Anchor> {
     let anchor: Anchor
@@ -39,7 +44,13 @@ extension LayoutProxy {
 
     func createConstraint(with completion: (Anchor) -> NSLayoutConstraint) -> NSLayoutConstraint {
         let constraint = completion(self.anchor)
+
+        #if canImport(UIKit)
+        constraint.priority = UILayoutPriority(self.priority)
+        #elseif canImport(AppKit)
         constraint.priority = NSLayoutConstraint.Priority(self.priority)
+        #endif
+
         constraint.isActive = self.isActive
         return constraint
     }

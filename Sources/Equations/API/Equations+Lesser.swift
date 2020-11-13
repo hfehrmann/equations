@@ -6,24 +6,29 @@
 //  Copyright © 2020 Fehrmann Inc. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
 import AppKit
+#endif
 
 @discardableResult
 public func <=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: A) -> NSLayoutConstraint {
-    lhs.createConstraint { $0.constraint(lessThanOrEqualTo: rhs, constant: 0) }
+    return lhs.createConstraint { $0.constraint(lessThanOrEqualTo: rhs, constant: 0) }
 }
 
 @discardableResult
 public func <=<A: LayoutAnchor>(_ lhs: LayoutProxy<A>, rhs: LayoutConfiguration<A>) -> NSLayoutConstraint {
-    lhs.createConstraint { $0.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.constant) }
+    return lhs.createConstraint { $0.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.constant) }
 }
 
 // MARK: - Dimension API
 
 @discardableResult
 public func <=<A: LayoutDimension>(_ lhs: LayoutProxy<A>, rhs: CGFloat) -> NSLayoutConstraint {
-    lhs.createConstraint { $0.constraint(lessThanOrEqualToConstant: rhs) }
+    return lhs.createConstraint { $0.constraint(lessThanOrEqualToConstant: rhs) }
 }
 
 @discardableResult

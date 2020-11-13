@@ -6,7 +6,7 @@
 //  Copyright © 2020 Fehrmann Inc. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 public func +<A: LayoutAnchor>(_ lhs: A, rhs: CGFloat) -> LayoutConfiguration<A> {
     return LayoutConfiguration(anchor: lhs, constant: rhs)
