@@ -16,7 +16,7 @@ import AppKit
 @testable import Equations
 
 protocol TestableEquationView: AnyObject, EquationView {
-    var translatesAutoresizingMaskIntoConstraints: Bool { get set }
+    var translatesAutoresizingMaskIntoConstraints: Bool { get set } // swiftlint:disable:this identifier_name
     var constraints: [NSLayoutConstraint] { get }
     func addSubview(_ view: TestableEquationView)
 }
@@ -51,7 +51,6 @@ func createPriority(_ priority: NSLayoutConstraint.Priority) -> NSLayoutConstrai
 func createPriority(_ priority: Float) -> NSLayoutConstraint.Priority {
     return NSLayoutConstraint.Priority(priority)
 }
-
 
 extension NSView: TestableEquationView {
     func addSubview(_ view: TestableEquationView) {
