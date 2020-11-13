@@ -1,14 +1,14 @@
 # Equations
 
-Equations is macOS package that provides a friendly API for programmatically generate constraints
+Equations is macOS/iOS/tvOS package that provides a friendly API for programmatically generate constraints
 
 ## Usage
 
 **Equations** provides an equation-style for constraint generation
 
 ```swift
-let parentView = NSView()
-let view = NSView()
+let parentView = View() // Could be NSView or UIView
+let view = View() // Could be NSView or UIView
 
 parentView.addSubview(view)
 view.translatesAutoresizingMaskIntoConstraints = false
